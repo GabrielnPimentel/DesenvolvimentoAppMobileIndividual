@@ -15,19 +15,9 @@ export const styles = StyleSheet.create({
         color: '#fff',
     },
 
-    //Passar dois abaixos para componente ButtonComponents
-    button: {
-        backgroundColor: '#66c0f4',
-        width: '90%',
-        height: 60,
-        borderRadius: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
-    textButton: {
-        fontSize: 24,
-        color: '#fff'
-    },
-
+    item: {
+        padding: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
+      }
 })

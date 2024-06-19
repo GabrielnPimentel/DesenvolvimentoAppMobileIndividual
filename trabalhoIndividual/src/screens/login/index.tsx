@@ -9,15 +9,17 @@ import {
 import { TextInputComponent } from "../../components/TextInput";
 import { ButtonComponents } from "../../components/ButtonComponents";
 import { styles } from "./style";
+import { useNavigation } from "@react-navigation/native";
 
 export function Login() {
-
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const navegando = useNavigation();
+
   const handleEmail = (value: string) => {
     setEmail(value);
-    console.log("Valor do email: ", value);
+    console.log("Valor do email: " + value);
   };
 
   const handlePassword = (value: string) => {
@@ -26,13 +28,17 @@ export function Login() {
   };
 
   const handleLogin = () => {
-    Alert.alert("Botão Clicado!");
+    //Precisei colocar !email devido a um problema que deu dps no Android Studio que apagava o campo
+    if (!email) {
+      navegando.navigate("StackTabsPages", { name: "Login" });
+    } else {
+      Alert.alert("Credenciais invalidas!");
+    }
   };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-
         <Text style={styles.title}>INICIAR SESSÃO</Text>
 
         <Text>NOME DE USUARIO STEAM</Text>
@@ -48,11 +54,19 @@ export function Login() {
         <TextInputComponent
           funcao={handlePassword}
           value={password}
-          //placeholder="Digite seu senha"
           tipoDoInput={true}
         />
 
-        <ButtonComponents title='Iniciar sessão' funcao={handleLogin}/>
+        <ButtonComponents title="Iniciar sessão" funcao={handleLogin} />
+
+        <Text>Precisa de ajuda para iniciar a sessão</Text>
+
+        <Text>
+          É gratuito e fácil. Descubra milhares de jogos de computador para
+          jogar com milhões de novos amigos.
+        </Text>
+
+        <Text style={styles.bottom}>Saiba mais sobre o Steam</Text>
 
       </View>
     </TouchableWithoutFeedback>
