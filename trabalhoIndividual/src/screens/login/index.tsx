@@ -29,7 +29,7 @@ export function Login() {
 
   const handleLogin = () => {
     //Precisei colocar !email devido a um problema que deu dps no Android Studio que apagava o campo
-    if (!email) {
+    if (email) {
       navegando.navigate("StackTabsPages", { name: "Login" });
     } else {
       Alert.alert("Credenciais invalidas!");
@@ -59,9 +59,9 @@ export function Login() {
 
         <ButtonComponents title="Iniciar sessão" funcao={handleLogin} />
 
-        <Text>Precisa de ajuda para iniciar a sessão</Text>
+        <Text style={styles.textHelp}>Precisa de ajuda para iniciar a sessão</Text>
 
-        <Text>
+        <Text style={styles.textInfo}>
           É gratuito e fácil. Descubra milhares de jogos de computador para
           jogar com milhões de novos amigos.
         </Text>

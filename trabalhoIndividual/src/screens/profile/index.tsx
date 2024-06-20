@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Alert, FlatList, Text, TouchableOpacity, View } from "react-native";
+import { Alert, FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import ProfilePic from '../../assets/profileSteam.jpg';
 import { styles } from "./style";
 import { ButtonComponents } from "../../components/ButtonComponents";
 import { useNavigation } from "@react-navigation/native";
+
+
 
 export function Profile() {
 
@@ -36,7 +39,18 @@ export function Profile() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Página Profile</Text>
+
+      <View style={styles.profileContainer}>
+        <Image 
+        style={{
+          width: 100,
+          height: 100
+        }}
+        source={ProfilePic}/>
+
+        <Text style={styles.profileName}>PepperL</Text>
+        
+      </View>
 
       <ButtonComponents title="Adicionar amigos" funcao={addFriend} />
 

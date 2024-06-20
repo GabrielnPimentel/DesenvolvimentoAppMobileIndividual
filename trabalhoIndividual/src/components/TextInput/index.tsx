@@ -12,7 +12,7 @@ type PropsComponent = {
 export function TextInputComponent({placeholder, value, funcao, tipoDoInput}: PropsComponent) {
   return (
     <TextInput
-      //onChangeText={handleEmail}
+      onChangeText={funcao}
       
       value={value}
       style={styles.styleInput}

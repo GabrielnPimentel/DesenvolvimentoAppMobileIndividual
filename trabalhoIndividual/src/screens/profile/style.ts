@@ -10,6 +10,18 @@ export const styles = StyleSheet.create({
         gap: 20,
     },
 
+    profileContainer:{
+        flexDirection: 'row',
+        width: '100%',
+        backgroundColor: '#2c2c34',
+        padding: 25,
+        marginBottom: 20
+    },
+
+    profileName:{
+        fontSize:30
+    },
+
     title: {
         fontSize: 35,
         color: '#fff',
